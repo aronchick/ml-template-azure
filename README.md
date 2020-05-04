@@ -70,14 +70,16 @@ Please use the same value for the `resource_group` parameter that you have used 
 
 Once you save your changes to the file, the predefined GitHub workflow that trains and deploys a model on Azure Machine Learning gets triggered. Check the actions tab to view if your actions have successfully run.
 
+![Actiovs Tab](https://github.com/aronchick/ml-template-azure/blob/master/docs/images/Picture1.png)
+
+**NOTE:** It is likely that your first training run will take a longer than usual time - often 10 minutes or mere due to the requirement to provision the resources for the first time. If you'd like to cut the time, you may want to pre-provision the resources. Also, make sure you have enough quota to handle the training job (the default training job requires GPUs).
+
 ### 5. Modify the code
 
 Now you can start modifying the code in the <a href="/code">`code` folder</a>, so that your model and not the provided sample model gets trained on Azure. Where required, modify the environment yaml so that the training and deployment environments will have the correct packages installed in the conda environment for your training and deployment.
 Upon pushing the changes, actions will kick off your training and deployment run. Check the actions tab to view if your actions have successfully run.
 
 Comment lines 39 to 55 in your <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"` file</a> if you only want to train the model. Uncomment line 7 to 8, if you only want to kick off the workflow when pushing changes to the `"/code/"` file.
-
-![Actiovs Tab](https://github.com/aronchick/ml-template-azure/blob/master/docs/images/Picture1.png)
 
 ### 6. Viewing your AML resources and runs
 
